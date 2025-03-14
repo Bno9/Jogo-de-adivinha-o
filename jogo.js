@@ -8,7 +8,7 @@ const tentativas = 10;
 //Funções de dados
 const obterElemento = (id) => document.getElementById(id);
 const obterAdivinhacao = () => obterElemento('adivinhar').value; //obtem o valor digitado pelo usuario
-const valorPermitido = (valor) => valor <= 0 && valor > 100; //valida se o numero digitado é menor que 1 ou maior que 100
+const valorPermitido = (valor) => valor <= 0 || valor > 100; //valida se o numero digitado é menor que 1 ou maior que 100
 const comparacao = (valor) => valor < numeroAleatorio ? "menor" : "maior"; //compara se o valor digitado é maior ou menor que o numero aleatorio
 
 
