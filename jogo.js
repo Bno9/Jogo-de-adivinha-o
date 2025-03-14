@@ -20,8 +20,6 @@ function chute(){
     const dica = () => obterElemento('dicas').textContent = 'Seu numero é ' + comparacao(adivinhacao) + ' que o numero certo';
     const perdeu = () => obterElemento('derrota').textContent = 'Você perdeu! O numero secreto era ' + numeroAleatorio;
     
-    
-while (tentativas > 0){   // Se tirar o while e o else o código funcionar, mas não entendi pq. Preciso melhorar a logica desse while entao
 
     if(tentativas <= 0){
         perdeu();
@@ -38,11 +36,9 @@ while (tentativas > 0){   // Se tirar o while e o else o código funcionar, mas 
         return;
     }
 
-    else{
         tentativas--
         quantidadeTentativas();
         dica();
     
-} 
-} 
+
 }
