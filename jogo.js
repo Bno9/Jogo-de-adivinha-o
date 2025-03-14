@@ -14,17 +14,18 @@ const comparacao = (valor) => valor < numeroAleatorio ? "menor" : "maior"; //com
 
 function chute(){
 
-    const adivinhacao = obterAdivinhacao();
+    const adivinhacao = obterAdivinhacao().value;
     const comparar = comparacao(adivinhacao);
     const reduzirTentativas = tentativas - 1;
     const quantidadeTentativas = () => obterElemento('tentativas').textContent = 'Você tem ' + tentativas + ' tentativas restantes';
     const dica = () => obterElemento('dicas').textContent = 'Seu numero é ' + comparar + ' que o numero certo';
+    const perdeu = () => obterElemento('derrota').textContent = 'Você perdeu! O numero secreto era ' + numeroAleatorio;
     
     
 while (tentativas > 0){
 
     if(tentativas <= 0){
-        const perdeu = () => obterElemento('derrota').textContent = 'Você perdeu! O numero secreto era ' + numeroAleatorio;
+        perdeu();
         return;
     }
 
