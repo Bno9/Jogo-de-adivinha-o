@@ -23,8 +23,14 @@ function chute(){
     
 while (tentativas > 0){
 
+    if(tentativas <= 0){
+        const perdeu = () => obterElemento('derrota').textContent = 'Você perdeu! O numero secreto era ' + numeroAleatorio;
+        return;
+    }
+
     if(valorPermitido(adivinhacao)){
         alert("apenas numeros de 1 a 100.");
+        return;
     }
 
     if(adivinhacao === numeroAleatorio){
@@ -32,14 +38,9 @@ while (tentativas > 0){
         return;
     }
 
-    if(tentativas <= 0){
-        const perdeu = () => obterElemento('derrota').textContent = 'Você perdeu! O numero secreto era ' + numeroAleatorio;
-        return;
-    }
-
     else{
-        comparar;
         reduzirTentativas;
+        quantidadeTentativas();
         dica();
     }
 } 
