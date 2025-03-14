@@ -2,16 +2,14 @@
 const numeroAleatorio = Math.random() * 100;
 console.log(numeroAleatorio);
 
+//Função de mecanica do jogo
+const tentativas = 10;
 
 //Funções de dados
 const obterElemento = (id) => document.getElementById(id);
 const obterAdivinhacao = () => obterElemento('adivinhar').value; //obtem o valor digitado pelo usuario
 const valorPermitido = (valor) => valor <= 0 && valor > 100; //valida se o numero digitado é menor que 1 ou maior que 100
 const comparacao = (valor) => valor < numeroAleatorio ? "menor" : "maior"; //compara se o valor digitado é maior ou menor que o numero aleatorio
-
-
-//Função de mecanicas do jogo
-const tentativas = 10;
 
 
 function chute(){
@@ -35,8 +33,9 @@ while (tentativas > 0){
     }
 
     if(tentativas <= 0){
-        const perdeu = () => obterElemento('derrota').textContent = 'Você perdeu!';
-}
+        const perdeu = () => obterElemento('derrota').textContent = 'Você perdeu! O numero secreto era ' + numeroAleatorio;
+        return;
+    }
 
     else{
         comparar;
