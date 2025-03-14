@@ -1,28 +1,27 @@
 //Definição do numero do jogo
-const numeroAleatorio = Math.floor(Math.random() * 100);
+const numeroAleatorio = Math.round(Math.random() * 100);
 console.log(numeroAleatorio);
 
 //Função de mecanica do jogo
-const tentativas = 10;
+let tentativas = 10;
 
 //Funções de dados
 const obterElemento = (id) => document.getElementById(id);
-const obterAdivinhacao = () => obterElemento('adivinhar').value; //obtem o valor digitado pelo usuario
-const valorPermitido = (valor) => valor <= 0 || valor > 100; //valida se o numero digitado é menor que 1 ou maior que 100
-const comparacao = (valor) => valor < numeroAleatorio ? "menor" : "maior"; //compara se o valor digitado é maior ou menor que o numero aleatorio
+const obterAdivinhacao = () => parseInt(obterElemento('adivinhar').value); //obtem o valor digitado pelo usuario
+const valorPermitido = (valor) => valor < 1 || valor > 100; //valida se o numero digitado é menor que 1 ou maior que 100
+const comparacao = (valor) => valor < numeroAleatorio ? "menor" : valor > numeroAleatorio ? "maior" : "igual"; //compara se o valor digitado é maior ou menor que o numero aleatorio
+const apagarInterface = () => obterElemento('dicas').textContent = ''
 
 
 function chute(){
 
-    const adivinhacao = obterAdivinhacao().value;
-    const comparar = comparacao(adivinhacao);
-    const reduzirTentativas = tentativas - 1;
+    let adivinhacao = obterAdivinhacao();
     const quantidadeTentativas = () => obterElemento('tentativas').textContent = 'Você tem ' + tentativas + ' tentativas restantes';
-    const dica = () => obterElemento('dicas').textContent = 'Seu numero é ' + comparar + ' que o numero certo';
+    const dica = () => obterElemento('dicas').textContent = 'Seu numero é ' + comparacao(adivinhacao) + ' que o numero certo';
     const perdeu = () => obterElemento('derrota').textContent = 'Você perdeu! O numero secreto era ' + numeroAleatorio;
     
     
-while (tentativas > 0){
+while (tentativas > 0){   // Se tirar o while e o else o código funcionar, mas não entendi pq. Preciso melhorar a logica desse while entao
 
     if(tentativas <= 0){
         perdeu();
@@ -40,9 +39,10 @@ while (tentativas > 0){
     }
 
     else{
-        reduzirTentativas;
+        tentativas--
         quantidadeTentativas();
         dica();
-    }
+    
 } 
 } 
+}
