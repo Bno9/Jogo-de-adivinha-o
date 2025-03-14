@@ -1,5 +1,5 @@
 //Definição do numero do jogo
-const numeroAleatorio = Math.random() * 100;
+const numeroAleatorio = Math.floor(Math.random() * 100);
 console.log(numeroAleatorio);
 
 //Função de mecanica do jogo
