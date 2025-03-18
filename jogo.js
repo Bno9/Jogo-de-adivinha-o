@@ -15,7 +15,6 @@ const apagarInterface = () => obterElemento('dicas').textContent = ''
 
 function reiniciar(){ //Recarrega a pagina para jogar novamente
     location.reload()
-    
 }
 
 function esperar(ms) { //Recarrega a pagina depois de 1 segundo, após vencer (peguei esse codigo no google)
@@ -33,7 +32,8 @@ while (tentativas > 0){
 
     if(tentativas <= 1){ //Tive que colocar um igual ou menor que 1, porque no ultimo loop ele só vai contar no 0, e se botar um return, fica aparecendo que ainda tem 1 tentativa, então deixei sem
         perdeu();
-        document.getElementById("reiniciar").textContent = "Reiniciar"
+        document.getElementById("reiniciar").style.visibility = "visible";
+        document.getElementById("reiniciar").textContent = "Reiniciar";
     }
 
     if(valorPermitido(adivinhacao)){
