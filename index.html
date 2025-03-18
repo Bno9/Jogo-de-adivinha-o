@@ -11,10 +11,11 @@
     <h3>O jogo irá gerar um número aleatório entre 1 e 100 e você terá que adivinhar esse número. Serão dadas dicas dizendo se o número chutado é maior ou menor que o número secreto. O jogo termina quando você acertar o número ou quando atingir o máximo de 10 tentativas</h3>
 </header>
 <body>
-    <input type="number" id = 'adivinhar'>
+    <input type="number" id='adivinhar' required>
     <p id='dicas'></p>
     <p id='tentativas'></p>
     <button type ="button" onclick="chute()">Chutar número</button>
+    <button id="reiniciar" type="button" onclick="reiniciar()"></button>
 
     <h1 id='derrota'></h1>
 
